@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+// Variables
+$primary-color: #333;
+$secondary-color: #f0f0f0;
+$font: Arial, sans-serif;
+$mobile: 480px;
+$tablet: 768px;
+// Mixins
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html {
+  scrollbar-width: none; // For Firefox
+}
+
+body::-webkit-scrollbar {
+  display: none; // For Webkit browsers (Chrome, Safari, etc.)
+}
+
+.landing-page {
+  font-family: $font;
+  padding-top: 4.5rem;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+
+  @include flex-center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: $primary-color;
+  color: white;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+
+    a {
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+
+  @media (max-width: $mobile) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 24px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    .hamburger-line {
+      width: 100%;
+      height: 2px;
+      background: white;
+    }
+  }
+}
+
+.nav-links.open {
+  display: flex;
+}
+
+// .header {
+//   @include flex-center;
+//   justify-content: space-between;
+//   padding: 1rem;
+//   background-color: $primary-color;
+//   color: white;
+
+//   a {
+//     color: white;
+//     text-decoration: none;
+//     margin-left: 1rem;
+//   }
+
+//   @media (max-width: $mobile) {
+//     flex-direction: column;
+
+//     nav {
+//       margin-top: 1rem;
+//     }
+//   }
+// }
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+  background-color: $secondary-color;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.features,
+.pricing,
+.contact {
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.about {
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.team {
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .team-members {
+    // Add styles for team member cards
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: $primary-color;
+  color: white;
+}
+
+@media (min-width: $mobile) {
+  :root {
+    font-size: calc(16px + (24 - 16) * (100vw - 480px) / (768 - 480));
+  }
+}
+
+@media (min-width: $tablet) {
+  :root {
+    font-size: 24px;
+  }
+}
